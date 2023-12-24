@@ -1,6 +1,7 @@
 # Functions and control flow
 
 ## Functions
+Using https://dart.dev/language/functions as source.
 
 ### Parameters
 - Recap of functions: We have already seen functions last week. Here are some examples:
@@ -60,28 +61,241 @@ void main(List<String> arguments) {
 }
 ```
 
-- Arrow functions: This is a compact way of writing (typically short) functions.
-- Higher-order functions: Functions are first-class objects can be saved to variables or passed to other functions as parameters. This concept enables us to write more powerful programs.
-- Using https://dart.dev/language/functions as source. Although most advanced topics in this page are not covered in our module, you can read them if you are interested.
+- Arrow functions: Functions that are made up of expressions can be simplified using `=>` (the arrow notation). This shortcut cannot be used if the function’s body consists of statements (statements something but do not return a value, e.g., `double radius = 10;` whereas expressions have some value, e.g., `pow(radius, 2) * pi` has the value 314.159265359). Since `x * 2` is an expression in `timesTwo` function below, we can simplify it using the arrow notation:
+```dart
+int timesTwo(int x) {
+    return x * 2;
+}
+
+int timesTwo(int x) => x * 2;
+
+void main() {
+    int result = timesTwo(2);
+    print(result); // prints 4
+}
+```
+
+- Higher-order functions: Functions are first-class objects can be saved to variables or passed to other functions as parameters. Higher-order functions are functions that accept other functions as parameters (or return them as outputs). 
+As programmers, you will most likely use higher-order functions when processing collections of data (for example, lists or strings). Suppose we were to write a `timesFour` function that multiplies its input by 4. We could write it as follows:
+```dart
+int timesFour(int x) {
+    return x * 4;
+}
+
+void main() {
+    int result = timesFour(2);
+    print(result); // prints 8
+}
+```
+But also we could write a function `applyTwice` that applies a function twice to an input:
+```dart
+int applyTwice(int Function(int) f, int x) {
+    int firstOutput = f(x);
+    int secondOutput = f(firstOutput);
+    return secondOutput;
+}
+```
+Then we could call `applyTwice` with `timesTwo` as follows:
+```dart
+void main() {
+    int result = applyTwice(timesTwo, 2);
+    print(result); // prints 8
+}
+```
+Also here is an example of assigning a function to a variable:
+```dart
+void main() {
+    int Function(int) timesTwo = (int x) => x * 2;
+    int result = timesTwo(2);
+    print(result); // prints 4
+}
+```
+Dart also has Lambda expressions, called anonymous functions in Dart. These are functions that do not have a name. They are useful when we want to pass a function as a parameter to another function, but we do not want to define a function separately. For example:
+```dart
+Function makeAdder(int x) {
+  return (int y) => x + y; // Returns an anonymous function.
+}
+
+void main() {
+    Function addTwo = makeAdder(2); // Or you can specify the type ...
+    int Function(int) addTwo = makeAdder(2);
+
+    print(addTwo(3)); // prints 5
+}
+```
+
 
 ## Conditionals
 
-- Boolean expressions
-    - Equality and relational operators: These operators are used to compare values.
-    - Logical operators: These operators are used to combine boolean expressions.
-    - Using https://dart.dev/language/operators and https://dart.dev/language/built-in-types#booleans as sources.
+### Boolean expressions
+Using https://dart.dev/language/operators and https://dart.dev/language/built-in-types#booleans as sources.
 
-- Conditional statements
-    - If statements: These statements are used to execute code based on a boolean expression.
-    - If-else statements: These statements are used to execute code based on a boolean expression, but also execute code if the boolean expression is false.
-    - If-case statements: These statements are used to execute code based on a boolean expression, but also execute code if the boolean expression is false. They are similar to if-else statements, but are more compact.
-    - Switch statements and switch expressions: These statements are used to execute code based on the value of a variable.
-    - Advanced: Exhaustiveness checking and guard clauses: These are advanced features of switch statements and switch expressions.
-    - Using https://dart.dev/language/branches as source.
-    - And example of named/optional parameters with conditional statements (e.g., )
+- Equality and relational operators: These operators are used to compare values. Quickly recap operators: `==`, `!=`, `>`, `<`, `>=`, `<=` (these are same as Python). Also small note about `as`, `is`, `is!` operators. Some examples, we have seen similar things before:
+```dart
+void main() {
+    print(1 == 1); // prints true
+    print(1 != 1); // prints false
+    print(1 >= 1); // prints true
+    print(1 is int); // prints true because 1 is an int
+    print(1 is! int); // prints false because 1 is an int
+    print('1' as int); // prints 1 because '1' can be converted to an int
+}
+```
+- Logical operators: Quickly recap operators: `&&`, `||`, `!` (list their equivalent in Python for instance, `and`, `or`, `not`). Some examples, we have seen similar things before:
+```dart
+void main() {
+    print(true && false); // prints false
+    print(false && false); // prints false
+    print(true || false); // prints true
+    print(!true); // prints false
+}
+```
+
+### Conditional statements
+Using https://dart.dev/language/branches as source.
+- If(-else) statements: We have already seen this in Python. The syntax is similar except we surround the boolean expression with parentheses and we use curly braces to surround the code to be executed. This is a simple example:
+```dart
+void main() {
+    String language = 'en';
+    if (language == 'en') {
+        print('Hello, world!');
+    } else if (language == 'es') {
+        print('Hola, mundo!');
+    } else if (language == 'fr') {
+        print('Bonjour, monde!');
+    } else {
+        print('Unknown language');
+    }
+```
+- Switch statements: These statements are used to execute code based on the value of a variable. They make the code more compact and readable. But you cannot use `if` statements inside `switch` statements (e.g., range checks). This is the same example as above using `switch`:
+```dart
+void main() {
+  String language = 'en';
+  switch (language) {
+    case 'en':
+      print('Hello, world!');
+      break;
+    case 'es':
+      print('Hola, mundo!');
+      break;
+    case 'fr':
+      print('Bonjour, monde!');
+      break;
+    default:
+      print('Unknown language');
+  }
+}
+```
+Below is an example of how a function that takes an optional parameter can check for a null value using a switch statement:
+```dart
+double customLog(double x, {double? base}) {
+    switch (base) {
+        case null:
+            return log(x);
+        default:
+            return log(x) / log(base);
+    }
+}
+```
+
+Dart has Exhaustiveness checking. This is a feature that reports a compile-time error if it’s possible for a value to enter a switch but not match any of the cases. Try for example:
+```dart
+import 'dart:io';
+
+void main() {
+    String language = stdin.readLineSync()!;
+    int? number = int.tryParse(language);
+
+    // Non-exhaustive switch statement on int?, missing case null
+    if (number % 2 == 0) {
+        print('Even');
+    } else {
+        print('Odd');
+    }
+}
+```
+Note that `tryParse` returns `null` if the string cannot be parsed as the given type (here an `int`).
+
+- Exception handling: Similar to Python, we can use try-catch statements to handle exceptions. This is an example:
+```dart
+void main() {
+    try {
+        int result = 1 ~/ 0;
+        print(result);
+    } on IntegerDivisionByZeroException {
+        print('Cannot divide by zero');
+    } catch (e) {
+        print('An unknown error occurred: $e');
+    }
+}
+```
+There is way more to exception handling (e.g., `throw` statement, `assert` statement, etc.) for more info: https://dart.dev/language/error-handling
 
 ## Loops
-- For loops: These loops are used to execute code a fixed number of times.
-- While and do-while loops: These loops are used to execute code while a boolean expression is true.
-- Break and continue: These statements are used to control the flow of loops.
-- Using https://dart.dev/language/loops as source.
+Using https://dart.dev/language/loops as source.
+### For loops
+- For loops: We have already seen for loops in Python. The syntax is similar except place the initialization and increment statements in the parentheses and we use curly braces to surround the code to be executed. This is a simple example:
+```dart
+void main(){
+    for (int i = 0; i < 5; i++) {
+        print(i);
+    }
+}
+```
+We also have `for-in` loops, but we will see examples of this when we cover collections.
+For more practice on for-in loops, we recommend this codelab: https://dart.dev/codelabs/iterables
+
+### While loops
+- While and do-while loops: Again, we have already seen while loops in Python. The syntax is similar except we use curly braces to surround the code to be executed. This is a simple example (we are making the program that reads the user's number more robust by checking if the input is not `null`):
+```dart
+int getNumber() {
+    while (true) {
+        print('Enter a number:');
+        String? input = stdin.readLineSync();
+        int? number = int.tryParse(input!);
+        if (number != null) {
+            return number;
+        } else {
+            print('You did not enter a number');
+        }
+    }
+}
+```
+Another example of getting a number that is either 5, 7 or 9:
+```dart
+int getSize() {
+    int? size;
+    while (size != 5 && size != 7 && size != 9) {
+        print('Enter a size (5, 7 or 9):');
+        String? input = stdin.readLineSync();
+        size = int.tryParse(input!); // This will break if input is null
+    }
+    return size;
+}
+```
+Similar to Python, we also have `break` and `continue` statements. Here is an updated version of the above example using `break`:
+```dart
+int getSize() {
+    int? size;
+    while (true) {
+        print('Enter a size (5, 7 or 9):');
+        String? input = stdin.readLineSync();
+        size = int.tryParse(input!); // This will break if input is null
+        if (size == 5 || size == 7 || size == 9) {
+            break;
+        }
+    }
+    return size;
+}
+```
+And here is an example using `continue`:
+```dart
+void main() {
+    for (int i = 0; i < 10; i++) {
+        if (i % 2 == 0) {
+            continue;
+        }
+        print(i);
+    }
+}
+```
