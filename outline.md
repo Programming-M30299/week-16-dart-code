@@ -49,7 +49,7 @@ void examReminder(String studentName = "student"){
 ```
 Note that the type of parameters can also be nullable (e.g., `String? name`), this way if no value is passed for a parameter, it will be `null`.
 
-### `main` function
+### `main` function and importing from other files
 Reminder: This is the entry point of Dart programs, all Dart programs must have a `main` function that is called when the program starts. The `main` function could call other functions.
 `main` function with arguments: When used for command-line programs, the `main` function can take arguments. We will visit lists in more details later, this is just a quick example:
 ```dart
@@ -60,7 +60,23 @@ void main(List<String> arguments) {
     birthdayMessage(name, age);
 }
 ```
+A project may have multiple Dart files. To use functions from other files, we need to import them. For example, if we have a file called `birthday.dart` that contains the `birthdayMessage` function, we can import it as follows in the `main.dart` file that has the `main` function:
+```dart
+import 'birthday.dart';
 
+void main() {
+    birthdayMessage("Alice", 20);
+}
+```
+This would be the content of the `birthday.dart` file:
+```dart
+void birthdayMessage(String name, int ageLastYear) {
+    print("Happy ${ageLastYear + 1}th birthday, $name!");
+}
+```
+
+
+### Arrow functions
 Arrow functions: Functions that are made up of expressions can be simplified using `=>` (the arrow notation). This shortcut cannot be used if the function’s body consists of statements (statements something but do not return a value, e.g., `double radius = 10;` whereas expressions have some value, e.g., `pow(radius, 2) * pi` has the value 314.159265359). Since `x * 2` is an expression in `timesTwo` function below, we can simplify it using the arrow notation:
 ```dart
 int timesTwo(int x) {
@@ -75,6 +91,7 @@ void main() {
 }
 ```
 
+### Higher-order functions
 Higher-order functions: Functions are first-class objects can be saved to variables or passed to other functions as parameters. Higher-order functions are functions that accept other functions as parameters (or return them as outputs). 
 As programmers, you will most likely use higher-order functions when processing collections of data (for example, lists or strings). Suppose we were to write a `timesFour` function that multiplies its input by 4. We could write it as follows:
 ```dart
