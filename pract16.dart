@@ -15,7 +15,7 @@ int calculateArea({required int side1, int? side2}) {
   return side1 * (side2 ?? 1);
 }
 
-// This function is imported in `birthday.dart`.
+// This function is imported in `main.dart`.
 void birthdayMessage(String name, int age) {
   print("Happy birthday, $name! You are $age years old!");
 }
