@@ -1,6 +1,18 @@
+import 'dart:io';
+
 void main() {
-  print(calculateArea(side1: 5, side2: 10));
-  print(calculateArea(side1: 5));
+  // print(calculateArea(side1: 5, side2: 10));
+  // print(calculateArea(side1: 5));
+
+  print("Please enter your name:");
+  String name = stdin.readLineSync()!;
+
+  print("Enter your birth year:");
+  int birthYear = int.parse(stdin.readLineSync()!);
+  int currentYear = DateTime.now().year;
+  int age = currentYear - birthYear;
+
+  print("Hello, $name! You are $age years old.");
 }
 
 // int calculateArea(int side1, int side2) {
