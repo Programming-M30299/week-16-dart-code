@@ -3,6 +3,12 @@ import 'dart:math';
 void main() {
   // print(calculateArea(side1: 5, side2: 10));
   // print(calculateArea(side1: 5));
+
+  // int Function(int) multiplyBy2 = (int x) => x * 2;
+  int Function(int) multiplyBy2 = makeMultiplier(2);
+  int number = 5;
+  int result = applyTwice(multiplyBy2, number);
+  print(result); // 20
 }
 
 void calculateAge(String name, int birthYear) {
@@ -35,4 +41,14 @@ double calculateCircleArea(double radius) {
   return pi * pow(radius, 2);
 }
 
-int multiplyBy2(int x) => x * 2;
+// int multiplyBy2(int x) => x * 2;
+
+int applyTwice(int Function(int) operation, int number) {
+  int firstStep = operation(number);
+  int secondStep = operation(firstStep);
+  return secondStep;
+}
+
+int Function(int) makeMultiplier(int x) {
+  return (int y) => x * y;
+}
