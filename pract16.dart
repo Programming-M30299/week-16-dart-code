@@ -34,3 +34,5 @@ void birthdayMessage(String name, int age) {
 double calculateCircleArea(double radius) {
   return pi * pow(radius, 2);
 }
+
+int multiplyBy2(int x) => x * 2;
