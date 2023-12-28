@@ -260,6 +260,12 @@ void main(){
     }
 }
 ```
+In Python, this would be:
+```python
+for i in range(0, 5, 1):
+    print(i)
+```
+
 We also have `for-in` loops, but we will see examples of this when we cover collections.
 For more practice on for-in loops, we recommend this codelab: https://dart.dev/codelabs/iterables
 
