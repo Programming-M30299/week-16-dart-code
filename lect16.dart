@@ -12,9 +12,6 @@ void main() {
 
   // int Function(int) twoAdder = makeAdder(2);
   // print(twoAdder(5)); // 7
-
-  // divide(5, 0);
-  // divide(5, 2);
 }
 
 // void examReminder(String name, int date) {
@@ -102,20 +99,5 @@ String boolToString(bool? value) {
     // that the switch statement doesn't cover all cases
     default:
       return 'unknown';
-  }
-}
-
-double divide(int a, int b) {
-  try {
-    double result = a / b;
-    return result;
-  } on UnsupportedError {
-    print("Division by zero!");
-    return double.infinity; // Infinity
-  } catch (e) {
-    print("Unknown error: $e");
-    return double.nan; // Not a number
-  } finally {
-    print("This will always be executed.");
   }
 }

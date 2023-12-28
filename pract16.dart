@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:io';
 
 void main() {
   // print(calculateArea(side1: 5, side2: 10));
@@ -9,6 +10,9 @@ void main() {
   // int number = 5;
   // int result = applyTwice(multiplyBy2, number);
   // print(result); // 20
+
+  // divide(5, 0);
+  // divide(5, 2);
 }
 
 void calculateAge(String name, int birthYear) {
@@ -84,5 +88,47 @@ void multiLingualGreeting(String language) {
     default:
       print('Unknown language');
       print('Please select a valid language.');
+  }
+}
+
+double customLog(double x, {double? base}) {
+  switch (base) {
+    case null:
+      return log(x);
+    default:
+      return log(x) / log(base);
+  }
+}
+
+void getBoolFromUser() {
+  print('Enter a boolean value:');
+  String input = stdin.readLineSync()!;
+  bool? isTrue = bool.tryParse(input);
+  switch (isTrue) {
+    case true:
+      print('It is true');
+      break;
+    case false:
+      print('It is false');
+      break;
+    // Without the default case, the analyzer would complain
+    // that the switch statement doesn't cover all cases
+    default:
+      print('It is not a boolean value');
+  }
+}
+
+double divide(int a, int b) {
+  try {
+    double result = a / b;
+    return result;
+  } on UnsupportedError {
+    print("Division by zero!");
+    return double.infinity; // Infinity
+  } catch (e) {
+    print("Unknown error: $e");
+    return double.nan; // Not a number
+  } finally {
+    print("This will always be executed.");
   }
 }
