@@ -12,23 +12,6 @@ void main() {
 
   // int Function(int) twoAdder = makeAdder(2);
   // print(twoAdder(5)); // 7
-
-  int score = 8;
-  switch (score) {
-    case 10:
-      print('A');
-      break;
-    case 9:
-    case 8:
-      print('B');
-      break;
-    case 7 || 6:
-      print('C');
-      break;
-    // additional cases
-    default:
-      print('F');
-  }
 }
 
 // void examReminder(String name, int date) {
