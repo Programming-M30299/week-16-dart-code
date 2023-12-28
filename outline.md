@@ -220,14 +220,15 @@ Dart has Exhaustiveness checking. This is a feature that reports a compile-time 
 import 'dart:io';
 
 void main() {
-    String language = stdin.readLineSync()!;
-    int? number = int.tryParse(language);
-
-    // Non-exhaustive switch statement on int?, missing case null
-    if (number % 2 == 0) {
-        print('Even');
-    } else {
-        print('Odd');
+    String input = stdin.readLineSync()!;
+    bool? isTrue = bool.tryParse(input);
+    switch (isTrue) {
+        case true:
+            print('It is true');
+            break;
+        case false:
+            print('It is false');
+            break;
     }
 }
 ```
