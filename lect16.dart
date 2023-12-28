@@ -5,13 +5,30 @@ void main() {
   // examReminder(date: 14, name: "Alice");
   // examReminder(date: 14);
 
-  // String Function(String) loudify = 
+  // String Function(String) loudify =
   //   (String text) => '${text.toUpperCase()}!!!';
-  
+
   // formatAndPrint(loudify, "Hello");
 
-  int Function(int) twoAdder = makeAdder(2);
-  print(twoAdder(5)); // 7
+  // int Function(int) twoAdder = makeAdder(2);
+  // print(twoAdder(5)); // 7
+
+  int score = 8;
+  switch (score) {
+    case 10:
+      print('A');
+      break;
+    case 9:
+    case 8:
+      print('B');
+      break;
+    case 7 || 6:
+      print('C');
+      break;
+    // additional cases
+    default:
+      print('F');
+  }
 }
 
 // void examReminder(String name, int date) {
@@ -38,16 +55,13 @@ int multiplyBy2(int x) => x * 2;
 //   return '${text.toUpperCase()}!!!';
 // }
 
-void formatAndPrint(
-  String Function(String) formatFunction, 
-  String text
-) {
+void formatAndPrint(String Function(String) formatFunction, String text) {
   String formattedText = formatFunction(text);
   print(formattedText);
 }
 
 // void formatAndPrint(
-//   Function formatFunction, 
+//   Function formatFunction,
 //   String text
 // ) {
 //   String formattedText = formatFunction(text);
@@ -60,4 +74,46 @@ void formatAndPrint(
 
 int Function(int) makeAdder(int x) {
   return (int y) => x + y;
+}
+
+void checkNumber(int number) {
+  if (number > 0) {
+    print("The number is positive.");
+  } else if (number < 0) {
+    print("The number is negative.");
+  } else {
+    print("The number is zero.");
+  }
+}
+
+void gradeStudent(int score) {
+  switch (score) {
+    case 10:
+      print('A');
+      break;
+    case 9:
+    case 8:
+      print('B');
+      break;
+    case 7 || 6:
+      print('C');
+      break;
+    case 5 || 4 || 3:
+      print('D');
+      break;
+    default:
+      print('F');
+  }
+}
+
+// Example of a function that reports a compile-time error.
+// Dart's exhaustive checking alerts us to the fact that
+// we have not covered all possible cases (i.e., `null`).
+String boolToString(bool? value) {
+  switch (value) {
+    case true:
+      return 'yes';
+    case false:
+      return 'no';
+  }
 }
