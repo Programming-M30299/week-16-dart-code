@@ -52,3 +52,37 @@ int applyTwice(int Function(int) operation, int number) {
 int Function(int) makeMultiplier(int x) {
   return (int y) => x * y;
 }
+
+void multiLingualGreeting(String language) {
+  // if (language == 'en') {
+  //   print('Hello, world!');
+  //   print('You selected English.');
+  // } else if (language == 'es') {
+  //   print('Hola, mundo!');
+  //   print('Has seleccionado Español.');
+  // } else if (language == 'fr') {
+  //   print('Bonjour, monde!');
+  //   print('Vous avez sélectionné le Français.');
+  // } else {
+  //   print('Unknown language');
+  //   print('Please select a valid language.');
+  // }
+
+  switch (language) {
+    case 'en-gb' || 'en-us':
+      print('Hello, world!');
+      print('You selected English.');
+      break;
+    case 'es':
+      print('Hola, mundo!');
+      print('Has seleccionado Español.');
+      break;
+    case 'fr':
+      print('Bonjour, monde!');
+      print('Vous avez sélectionné le Français.');
+      break;
+    default:
+      print('Unknown language');
+      print('Please select a valid language.');
+  }
+}
