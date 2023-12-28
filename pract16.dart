@@ -5,10 +5,10 @@ void main() {
   // print(calculateArea(side1: 5));
 
   // int Function(int) multiplyBy2 = (int x) => x * 2;
-  int Function(int) multiplyBy2 = makeMultiplier(2);
-  int number = 5;
-  int result = applyTwice(multiplyBy2, number);
-  print(result); // 20
+  // int Function(int) multiplyBy2 = makeMultiplier(2);
+  // int number = 5;
+  // int result = applyTwice(multiplyBy2, number);
+  // print(result); // 20
 }
 
 void calculateAge(String name, int birthYear) {
