@@ -89,14 +89,15 @@ void gradeStudent(int score) {
   }
 }
 
-// Example of a function that reports a compile-time error.
-// Dart's exhaustive checking alerts us to the fact that
-// we have not covered all possible cases (i.e., `null`).
 String boolToString(bool? value) {
   switch (value) {
     case true:
       return 'yes';
     case false:
       return 'no';
+    // Without the default case, the analyzer would complain
+    // that the switch statement doesn't cover all cases
+    default:
+      return 'unknown';
   }
 }
