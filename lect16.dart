@@ -1,3 +1,5 @@
+import 'dart:io';
+
 void main() {
   // examReminder("Alice", 14);
 
@@ -99,5 +101,18 @@ String boolToString(bool? value) {
     // that the switch statement doesn't cover all cases
     default:
       return 'unknown';
+  }
+}
+
+int getNumber() {
+  while (true) {
+    print('Enter a number:');
+    String? input = stdin.readLineSync();
+    int? number = int.tryParse(input!);
+    if (number != null) {
+      return number;
+    } else {
+      print('You did not enter a number');
+    }
   }
 }
