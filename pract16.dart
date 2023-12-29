@@ -132,3 +132,21 @@ double divide(int a, int b) {
     print("This will always be executed.");
   }
 }
+
+// int factorial(int n) {
+//   int result = 1;
+//   for (int i = 1; i <= n; i++) {
+//     result = result * i;
+//   }
+//   return result;
+// }
+
+int factorial(int n) {
+  int result = 1;
+  int i = 1;
+  while (i <= n) {
+    result = result * i;
+    i++;
+  }
+  return result;
+}
