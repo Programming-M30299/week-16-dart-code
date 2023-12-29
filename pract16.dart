@@ -13,6 +13,8 @@ void main() {
 
   // divide(5, 0);
   // divide(5, 2);
+
+  getSize();
 }
 
 void calculateAge(String name, int birthYear) {
@@ -149,4 +151,22 @@ int factorial(int n) {
     i++;
   }
   return result;
+}
+
+int getSize() {
+  int? size;
+  while (true) {
+    print('Enter a size (5, 7 or 9):');
+    String? input = stdin.readLineSync();
+    size = int.tryParse(input!);
+    if (size == null) {
+      print('Please enter a number.');
+      continue;
+    } else if (size != 5 && size != 7 && size != 9) {
+      print('Please enter 5, 7 or 9.');
+      continue;
+    }
+    break;
+  }
+  return size;
 }
