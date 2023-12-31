@@ -30,7 +30,7 @@ Run the `main.dart` file with two command-line arguments, for example:
 dart main.dart "John Smith" 21
 ```
 
-Analyze the code with the `dartanalyzer` command, for example:
+Analyze the code with the `dart analyze` command, for example:
 
 ```bash
 dart analyze pract16.dart
