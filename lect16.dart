@@ -14,6 +14,9 @@ void main() {
 
   // int Function(int) twoAdder = makeAdder(2);
   // print(twoAdder(5)); // 7
+
+  int number = getNumber();
+  print("The number is $number");
 }
 
 // void examReminder(String name, int date) {
@@ -108,11 +111,15 @@ int getNumber() {
   while (true) {
     print('Enter a number:');
     String? input = stdin.readLineSync();
-    int? number = int.tryParse(input!);
-    if (number != null) {
-      return number;
-    } else {
-      print('You did not enter a number');
+    if (input == null) {
+      print('Nothing was entered.');
+      continue;
     }
+    int? number = int.tryParse(input);
+    if (number == null) {
+      print('Not a number.');
+      continue;
+    }
+    return number; // We could also use break here
   }
 }
