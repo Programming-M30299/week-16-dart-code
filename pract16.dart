@@ -2,6 +2,8 @@ import 'dart:math';
 import 'dart:io';
 
 void main() {
+  print("Uncomment the code in `main()` to run the examples.");
+
   // print(calculateArea(side1: 5, side2: 10));
   // print(calculateArea(side1: 5));
 
@@ -14,7 +16,8 @@ void main() {
   // divide(5, 0);
   // divide(5, 2);
 
-  getSize();
+  // int size = getSize1(); // Try `getSize2()` and `getSize3()`
+  // print("The size is $size");
 }
 
 void calculateAge(String name, int birthYear) {
@@ -153,20 +156,50 @@ int factorial(int n) {
   return result;
 }
 
-int getSize() {
-  int? size;
-  while (true) {
-    print('Enter a size (5, 7 or 9):');
+int getSize1() {
+  int size = 0;
+  while (size != 5 && size != 7 && size != 9) {
+    print("Enter a size (5, 7 or 9):");
     String? input = stdin.readLineSync();
-    size = int.tryParse(input!);
-    if (size == null) {
-      print('Please enter a number.');
-      continue;
-    } else if (size != 5 && size != 7 && size != 9) {
-      print('Please enter 5, 7 or 9.');
+    size = int.parse(input!);
+  }
+  return size;
+}
+
+int getSize2() {
+  int size = 0;
+  while (size != 5 && size != 7 && size != 9) {
+    print("Enter a size (5, 7 or 9):");
+    String? input = stdin.readLineSync();
+    if (input == null) {
+      print("That was not a valid input.");
       continue;
     }
-    break;
+    size = int.parse(input);
+  }
+  return size;
+}
+
+int getSize3() {
+  int? size = null;
+  while (true) {
+    print("Enter a size (5, 7 or 9):");
+    String? input = stdin.readLineSync();
+    if (input == null) {
+      print("That was not a valid input.");
+      continue;
+    }
+    size = int.tryParse(input);
+    if (size == null) {
+      print("Your input was not a number.");
+      continue;
+    } else if (size != 5 && size != 7 && size != 9) {
+      print("Your number must be 5, 7 or 9.");
+      continue;
+    } else {
+      print("You have selected $size.");
+      break;
+    }
   }
   return size;
 }
