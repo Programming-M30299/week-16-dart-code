@@ -2,7 +2,6 @@ import 'dart:io';
 
 void main() {
   // examReminder("Alice", 14);
-
   // examReminder(name: "Alice", date: 14);
   // examReminder(date: 14, name: "Alice");
   // examReminder(date: 14);
