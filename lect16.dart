@@ -6,14 +6,6 @@ void main() {
   // examReminder(date: 14, name: "Alice");
   // examReminder(date: 14);
 
-  // String Function(String) loudify =
-  //   (String text) => '${text.toUpperCase()}!!!';
-
-  // formatAndPrint(loudify, "Hello");
-
-  // int Function(int) twoAdder = makeAdder(2);
-  // print(twoAdder(5)); // 7
-
   int number = getNumber();
   print("The number is $number");
 }
@@ -38,31 +30,6 @@ void examReminder({String name = "student", required int date}) {
 
 int multiplyBy2(int x) => x * 2;
 
-// String loudify(String text) {
-//   return '${text.toUpperCase()}!!!';
-// }
-
-void formatAndPrint(String Function(String) formatFunction, String text) {
-  String formattedText = formatFunction(text);
-  print(formattedText);
-}
-
-// void formatAndPrint(
-//   Function formatFunction,
-//   String text
-// ) {
-//   String formattedText = formatFunction(text);
-//   print(formattedText);
-// }
-
-// Function makeAdder(int x) {
-//   return (int y) => x + y;
-// }
-
-int Function(int) makeAdder(int x) {
-  return (int y) => x + y;
-}
-
 void checkNumber(int number) {
   if (number > 0) {
     print("The number is positive.");
@@ -77,17 +44,13 @@ void gradeStudent(int score) {
   switch (score) {
     case 10:
       print('A');
-      break;
     case 9:
     case 8:
       print('B');
-      break;
     case 7 || 6:
       print('C');
-      break;
     case 5 || 4 || 3:
       print('D');
-      break;
     default:
       print('F');
   }
