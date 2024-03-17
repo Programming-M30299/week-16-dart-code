@@ -8,6 +8,31 @@ void main() {
   // examReminder(date: 14, name: "Alice");
   // examReminder(date: 14);
 
+  // print('Trying the gradeStudent function:');
+  // gradeStudent(10);
+  // gradeStudent(8);
+  // gradeStudent(4);
+  // gradeStudent(2);
+  // gradeStudent(-100);
+
+  // print('Trying the boolToString function:');
+  // print(boolToString(true));
+  // print(boolToString(false));
+  // print(boolToString(null));
+
+  // print('Example of a try-catch block:');
+  // print('Trying to parse the String "19th" to an int...');
+  // try {
+  //   var date = int.parse('19th');
+  //   print('The date is $date');
+  // } on FormatException {
+  //   print('Caught a FormatException!');
+  // } catch (e) {
+  //   print('An unknown error occurred: $e');
+  // }
+
+  // loopExample1(); // Also try loopExample2(), loopExample3(), and loopExample4()
+
   // int number = getNumber();
   // print("The number is $number");
 }
@@ -71,6 +96,41 @@ String boolToString(bool? value) {
     // that the switch statement doesn't cover all cases
     default:
       return 'unknown';
+  }
+}
+
+void loopExample1() {
+  for (int i = 0; i < 5; i++) {
+    print(i);
+  }
+}
+
+void loopExample2() {
+  int i = 0;
+  while (i < 5) {
+    print(i);
+    i++;
+  }
+}
+
+void loopExample3() {
+  int i = 0;
+  do {
+    print(i);
+    i++;
+  } while (i < 5);
+}
+
+void loopExample4() {
+  int i = 0;
+  while (true) {
+    i++;
+    if (i == 2) {
+      continue;
+    } else if (i == 5) {
+      break;
+    }
+    print(i);
   }
 }
 
