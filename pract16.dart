@@ -7,6 +7,18 @@ void main() {
   // print(calculateArea(side1: 5, side2: 10));
   // print(calculateArea(side1: 5));
 
+  // int radius = 5;
+  // double area = calculateCircleArea(radius);
+  // print("The area of a circle with radius $radius is $area");
+
+  // int number = 5;
+  // int result = multiplyBy2(number);
+  // print("The result is $result");
+
+  // multiLingualGreeting('en');
+  // multiLingualGreeting('es');
+  // multiLingualGreeting('fr');
+
   // divide(5, 0);
   // divide(5, 2);
 
@@ -37,7 +49,7 @@ int calculateArea(int side1, {int side2 = 1}) => side1 * side2;
 
 // This function is imported in `main.dart`.
 void birthdayMessage(String name, int age) {
-  print("Happy birthday, $name! You are $age years old!");
+  print("Happy birthday, $name! You're $age years old!");
 }
 
 double calculateCircleArea(double radius) {
