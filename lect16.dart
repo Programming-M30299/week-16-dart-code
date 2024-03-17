@@ -1,25 +1,29 @@
 import 'dart:io';
 
 void main() {
+  print('Uncomment the code to run it.');
+
   // examReminder("Alice", 14);
   // examReminder(name: "Alice", date: 14);
   // examReminder(date: 14, name: "Alice");
   // examReminder(date: 14);
 
-  int number = getNumber();
-  print("The number is $number");
+  // int number = getNumber();
+  // print("The number is $number");
 }
 
-// void examReminder(String name, int date) {
-//   print("Dear $name,\n"
-//       "Don't forget your exam on the ${date}th!");
-// }
-
-void examReminder({String name = "student", required int date}) {
+void examReminder(String name, int date) {
   print("Dear $name,\n"
       "Don't forget your exam on the ${date}th!");
 }
 
+// The same function but name has a default value and date is required
+// void examReminder({String name = "student", required int date}) {
+//   print("Dear $name,\n"
+//       "Don't forget your exam on the ${date}th!");
+// }
+
+// The same function but name is nullable and date is required
 // void examReminder({
 //   String? name,
 //   required int date
@@ -28,6 +32,7 @@ void examReminder({String name = "student", required int date}) {
 //       "Don't forget your exam on the ${date}th!");
 // }
 
+// Example of the arrow syntax
 int multiplyBy2(int x) => x * 2;
 
 void checkNumber(int number) {
@@ -62,7 +67,7 @@ String boolToString(bool? value) {
       return 'yes';
     case false:
       return 'no';
-    // Without the default case, the analyzer would complain
+    // Without the default case, the compiler would complain
     // that the switch statement doesn't cover all cases
     default:
       return 'unknown';
@@ -82,6 +87,6 @@ int getNumber() {
       print('Not a number.');
       continue;
     }
-    return number; // We could also use break here
+    return number;
   }
 }
