@@ -16,7 +16,7 @@ void main() {
 
   // multiLingualGreeting('en');
   // multiLingualGreeting('es');
-  // multiLingualGreeting('fr');
+  // multiLingualGreeting('da');
 
   // divide(5, 0);
   // divide(5, 2);
@@ -68,18 +68,16 @@ int multiplyBy2(int x) {
 // int multiplyBy2(int x) => x * 2;
 
 void multiLingualGreeting(String language) {
-  if (language == 'en') {
-    print('Hello, world!');
-    print('You selected English.');
-  } else if (language == 'es') {
-    print('Hola, mundo!');
-    print('Has seleccionado Español.');
-  } else if (language == 'fr') {
-    print('Bonjour, monde!');
-    print('Vous avez sélectionné le Français.');
-  } else {
-    print('Unknown language');
-    print('Please select a valid language.');
+  switch (language) {
+    case 'en-gb' || 'en-us':
+      print('Hello, world!');
+    case 'es':
+      print('¡Hola Mundo!');
+    case 'fr':
+      print('Bonjour le monde!');
+    default:
+      print('Unknown language');
+      print('Please try again');
   }
 }
 
@@ -88,16 +86,13 @@ void multiLingualGreeting(String language) {
 //   switch (language) {
 //     case 'en-gb' || 'en-us':
 //       print('Hello, world!');
-//       print('You selected English.');
 //     case 'es':
-//       print('Hola, mundo!');
-//       print('Has seleccionado Español.');
+//       print('¡Hola Mundo!');
 //     case 'fr':
-//       print('Bonjour, monde!');
-//       print('Vous avez sélectionné le Français.');
+//       print('Bonjour le monde!');
 //     default:
 //       print('Unknown language');
-//       print('Please select a valid language.');
+//       print('Please try again');
 //   }
 // }
 
