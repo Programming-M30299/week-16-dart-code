@@ -18,8 +18,17 @@ void main() {
   // multiLingualGreeting('es');
   // multiLingualGreeting('da');
 
-  // divide(5, 0);
-  // divide(5, 2);
+  // double x = 10;
+  // double result = customLog(x, base: 10);
+  // print("The logarithm of $x with base 10 is $result");
+  // result = customLog(x);
+  // print("The natural logarithm of $x is $result");
+
+  // getBoolFromUser();
+
+  // exceptionHandlingDemo();
+
+  // print("The factorial of 5 is ${factorial(5)}");
 
   // int size = getSize1(); // Try `getSize2()` and `getSize3()`
   // print("The size is $size");
@@ -114,25 +123,23 @@ void getBoolFromUser() {
       print('It is true');
     case false:
       print('It is false');
-    // Without the default case, the analyzer would complain
+    // Without the default case, the compiler would complain
     // that the switch statement doesn't cover all cases
     default:
       print('It is not a boolean value');
   }
 }
 
-double divide(int a, int b) {
+void exceptionHandlingDemo() {
   try {
-    double result = a / b;
-    return result;
-  } on UnsupportedError {
-    print("Division by zero!");
-    return double.infinity; // Infinity
+    var numbers = [1, 2, 3];
+    print('The fourth number is ${numbers[3]}');
+  } on RangeError {
+    print('Caught a RangeError!');
   } catch (e) {
-    print("Unknown error: $e");
-    return double.nan; // Not a number
+    print('An unknown error occurred: $e');
   } finally {
-    print("This will always be executed.");
+    print('This line will always be executed');
   }
 }
 
