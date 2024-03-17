@@ -4,8 +4,7 @@ import 'dart:io';
 void main() {
   print("Uncomment the code in this file to run the examples.");
 
-  // print(calculateArea(side1: 5, side2: 10));
-  // print(calculateArea(side1: 5));
+  // print(calculateArea(5, 7));
 
   // int radius = 5;
   // double area = calculateCircleArea(radius);
@@ -33,19 +32,24 @@ void calculateAge(String name, int birthYear) {
   print("Hello, $name! You are $age years old.");
 }
 
-// int calculateArea(int side1, int side2) {
-//   return side1 * side2;
-// }
+int calculateArea(int side1, int side2) {
+  return side1 * side2;
+}
 
+// The same function, but using named parameters
+// side1 is required, side2 has a default value of 1
 // int calculateArea({required int side1, int side2 = 1}) {
 //   return side1 * side2;
 // }
 
+// This time, side2 is nullable
 // int calculateArea({required int side1, int? side2}) {
 //   return side1 * (side2 ?? 1);
 // }
 
-int calculateArea(int side1, {int side2 = 1}) => side1 * side2;
+// The same function, but using the arrow syntax
+// side1 is positional, side2 is named and has a default value of 1
+// int calculateArea(int side1, {int side2 = 1}) => side1 * side2;
 
 // This function is imported in `main.dart`.
 void birthdayMessage(String name, int age) {
