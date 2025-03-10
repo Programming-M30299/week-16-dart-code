@@ -1,17 +1,14 @@
 import 'dart:io';
 
 void main() {
-  print('Uncomment the code to run it.');
+  print('Uncomment the code with Ctrl+/ to run the examples.');
 
-  // examReminder("Alice", 14);
-  // examReminder(name: "Alice", date: 14);
-  // examReminder(date: 14, name: "Alice");
+  // examReminder("Presilia", 14);
+  // examReminder(date: 14, name: "Presilia");
   // examReminder(date: 14);
 
   // print('Trying the gradeStudent function:');
   // gradeStudent(10);
-  // gradeStudent(8);
-  // gradeStudent(4);
   // gradeStudent(2);
   // gradeStudent(-100);
 
@@ -38,8 +35,10 @@ void main() {
 }
 
 void examReminder(String name, int date) {
-  print("Dear $name,\n"
-      "Don't forget your exam on the ${date}th!");
+  print(
+    "Dear $name,\n"
+    "Don't forget your exam on the ${date}th!",
+  );
 }
 
 // The same function but name has a default value and date is required
