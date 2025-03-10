@@ -28,6 +28,12 @@ void main() {
 
   // exceptionHandlingDemo();
 
+  // try {
+  //   print(divide(10, 0));
+  // } on Exception catch (e) {
+  //   print(e);
+  // }
+
   // print("The factorial of 5 is ${factorial(5)}");
 
   // int size = getSize1(); // Try `getSize2()` and `getSize3()`
@@ -131,8 +137,8 @@ void getBoolFromUser() {
 }
 
 void exceptionHandlingDemo() {
+  var numbers = [1, 2, 3];
   try {
-    var numbers = [1, 2, 3];
     print('The fourth number is ${numbers[3]}');
   } on RangeError {
     print('Caught a RangeError!');
@@ -141,6 +147,14 @@ void exceptionHandlingDemo() {
   } finally {
     print('This line will always be executed');
   }
+}
+
+// A function that throws an exception:
+int divide(int a, int b) {
+  if (b == 0) {
+    throw Exception('Cannot divide by zero');
+  }
+  return a ~/ b;
 }
 
 // int factorial(int n) {
