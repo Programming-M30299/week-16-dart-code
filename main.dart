@@ -6,7 +6,7 @@ It takes two command line arguments: the user's name and age.
 
 Run this program with the following command:
 ```
-dart main.dart "John Doe" 21
+dart main.dart "Molly Millions" 21
 ```
  */
 void main(List<String> arguments) {

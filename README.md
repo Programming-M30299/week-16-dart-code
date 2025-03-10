@@ -27,7 +27,7 @@ dart pract16.dart
 Run the `main.dart` file with two command-line arguments, for example:
 
 ```bash
-dart main.dart "John Smith" 21
+dart main.dart "Molly Millions" 21
 ```
 
 Analyze the code with the `dart analyze` command, for example:
