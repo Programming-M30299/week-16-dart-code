@@ -29,3 +29,8 @@ doc/api/
 # Hide Visual Studio Code and Intellij project folders
 .vscode/
 .idea/
+
+# Hide MacOS and Windows system files
+.DS_Store
+Thumbs.db
+desktop.ini
