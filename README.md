@@ -3,10 +3,11 @@
 A repository containing the examples from the worksheet and lecture.
 
 ## Contents
-
+ 
 - `lect16.dart` - Code from the lecture.
 - `pract16.dart` - Code from the worksheet.
 - `main.dart` - A simple command-line program that prints the name and the age of the user passed to it as a command-line argument.
+- `arrow_function_examples.dart` - Additional Arrow Function examples.
 - `README.md` - This file.
 - `.gitignore` - A file telling git to ignore certain files. You do not need to worry about this file for now.
 
